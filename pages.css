@@ -1,0 +1,214 @@
+/* Soulvved shared pages (About, How it works, FAQ, Safety & privacy, Blog). Same design language as the Light/Dark home. */
+:root{--v:#5b4bff;--v2:#8a7dff;--v3:#ecebff;--v4:#f6f5ff;--d:#2e1a8c;--ink:#0a0a14;--mute:#625f7d;--w:#fff;--card:#fff;--ln:#e3e0ff;--ac:#5b4bff;--h:'Poppins',system-ui,sans-serif;--b:'DM Sans',system-ui,sans-serif;color-scheme:light}
+html.dark{--v:#2f1b8f;--v2:#9c8cff;--v3:#1b1140;--v4:#150d33;--d:#1a0f55;--ink:#f5f2ff;--mute:#b8aee6;--w:#0a0615;--card:#120a2b;--ln:#2a2160;--ac:#9c8cff;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--w);color:var(--ink);font:400 17px/1.7 var(--b);overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+h1,h2,h3{font-family:var(--h);line-height:1.15;margin:0;letter-spacing:-.03em}
+h1{font-size:clamp(34px,5vw,58px);font-weight:800}
+h2{font-size:clamp(24px,3vw,34px);font-weight:700;margin-top:2.2em}
+h3{font-size:20px;font-weight:600}
+p{margin:0 0 1.1em}
+a{color:var(--ac)}
+:focus-visible{outline:3px solid var(--v2);outline-offset:3px}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none}
+.bg i{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55}
+.bg .b1{width:46vw;height:46vw;background:#d9d5ff;left:-10vw;top:-10vw}
+.bg .b2{width:34vw;height:34vw;background:#e8e6ff;right:-8vw;top:40vh}
+html.dark .bg .b1{background:#2f1b8f}html.dark .bg .b2{background:#1b1140}
+nav.pn{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:18px;padding:14px 5vw;background:rgba(255,255,255,.78);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+html.dark nav.pn{background:rgba(10,6,21,.8)}
+.lgk{display:flex;align-items:center}
+.lgl{display:block;height:26px;width:auto}
+.lgz{display:none;height:26px;width:auto}
+html.dark .lgl{display:none}html.dark .lgz{display:block}
+.pl{display:flex;gap:26px;font:600 15px var(--b)}
+.pl a{color:var(--ink);text-decoration:none;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .25s,color .25s}
+.pl a:hover,.pl a[aria-current]{color:var(--ac);border-color:var(--ac)}
+.tg{display:flex;align-items:center;gap:8px;font:600 14px var(--b);color:var(--ac);cursor:pointer;user-select:none;position:relative}
+.tg input{position:absolute;opacity:0;width:0;height:0}
+main{max-width:980px;margin:0 auto;padding:130px 6vw 70px}
+.eyebrow{font:700 13px var(--h);letter-spacing:.14em;text-transform:uppercase;color:var(--ac);margin-bottom:14px}
+.lead{color:var(--mute);font-size:20px;max-width:56ch;margin:20px 0 0}
+.prose{max-width:70ch}
+.prose h2{margin-top:2em}.prose ul,.prose ol{padding-left:1.2em;margin:0 0 1.2em}.prose li{margin:.4em 0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin:30px 0}
+.card{background:var(--card);border:2px solid var(--ln);border-radius:22px;padding:26px;transition:transform .3s,border-color .3s}
+.card:hover{transform:translateY(-4px);border-color:var(--ac)}
+.card h3{margin:0 0 8px}.card p{color:var(--mute);margin:0}
+.card .n{font:800 34px var(--h);color:var(--ac);margin-bottom:6px;display:block}
+a.card{display:block;text-decoration:none;color:inherit}
+a.card .m{font:600 13px var(--b);color:var(--mute);margin-bottom:8px;display:block}
+.btn{display:inline-block;font:600 16px var(--b);border:0;cursor:pointer;color:#fff;text-decoration:none;background:linear-gradient(135deg,#5b4bff,#2e1a8c);padding:14px 26px;border-radius:999px;box-shadow:0 10px 26px -8px rgba(91,75,255,.65);transition:transform .25s,box-shadow .25s}
+html.dark .btn{background:linear-gradient(135deg,#2f1b8f,#4b34c9)}
+.btn:hover{transform:translateY(-2px) scale(1.03)}
+.cta{margin-top:50px;padding:34px;border-radius:26px;background:var(--v4);border:2px solid var(--ln);display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cta h2{margin:0;font-size:26px}.cta p{margin:6px 0 0;color:var(--mute)}
+.q{border-bottom:2px solid var(--v3)}
+.q button{all:unset;box-sizing:border-box;width:100%;display:flex;justify-content:space-between;gap:16px;padding:20px 0;cursor:pointer;font:600 19px var(--h)}
+.q button:focus-visible{outline:3px solid var(--v2);outline-offset:3px}
+.q button::after{content:"+";color:var(--ac);font-size:26px;line-height:1;transition:transform .35s}
+.q.open button::after{transform:rotate(135deg)}
+.q div{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}
+.q.open div{grid-template-rows:1fr}
+.q p{overflow:hidden;color:var(--mute);margin:0}
+.q.open p{padding-bottom:20px}
+.crumbs{font:500 14px var(--b);color:var(--mute);margin-bottom:22px}.crumbs a{color:var(--mute)}
+.meta{color:var(--mute);font-size:15px;margin-top:14px}
+@media(max-width:860px){
+ nav.pn{flex-wrap:wrap;row-gap:6px}
+ .pl{order:3;flex:0 0 100%;gap:20px;overflow-x:auto;white-space:nowrap;padding-bottom:2px;scrollbar-width:none}
+ .lgl{height:21px}.lgz{height:21px}
+ main{padding-top:150px}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+/* ---- Dark Mode toggle (identical to the home page) ---- */
+.dkt{position:relative;display:block;width:90px;height:40px;border-radius:99px;background:linear-gradient(180deg,#8fd0ff,#dff1ff);border:2px solid #b7d9f3;box-sizing:border-box;transition:background .45s,border-color .45s;overflow:hidden}
+.dkk{position:absolute;top:3px;left:3px;width:30px;height:30px;transition:transform .5s cubic-bezier(.5,-.3,.3,1.3)}
+.dkk svg{position:absolute;inset:-2px;width:34px;height:34px;transition:opacity .35s,transform .5s}
+.dk-sun{filter:drop-shadow(0 0 5px rgba(255,201,51,.8))}
+.dk-sun .rays{transform-origin:16px 16px;animation:dkspin 7s linear infinite}
+@keyframes dkspin{to{transform:rotate(360deg)}}
+.dk-moon{opacity:0;transform:rotate(-40deg) scale(.7);filter:drop-shadow(0 0 6px rgba(255,234,160,.95)) drop-shadow(0 0 14px rgba(255,234,160,.55))}
+.dk-st{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:0;box-shadow:0 0 4px 1px rgba(255,255,255,.8);transition:opacity .4s}
+.dk-st.s1{left:14px;top:9px}.dk-st.s2{left:26px;top:22px;width:2px;height:2px}.dk-st.s3{left:40px;top:11px;width:2px;height:2px}.dk-st.s4{left:20px;top:28px}
+.dm input:checked+.dkt{background:linear-gradient(180deg,#0b0726,#241a63);border-color:#9c8cff}
+.dm input:checked+.dkt .dkk{transform:translateX(50px)}
+.dm input:checked+.dkt .dk-sun{opacity:0;transform:rotate(90deg) scale(.5)}
+.dm input:checked+.dkt .dk-moon{opacity:1;transform:none}
+.dm input:checked+.dkt .dk-st{opacity:1;animation:dktw 1.8s ease-in-out infinite}
+.dm input:checked+.dkt .dk-st.s2{animation-delay:.5s}.dm input:checked+.dkt .dk-st.s3{animation-delay:1s}.dm input:checked+.dkt .dk-st.s4{animation-delay:.3s}
+@keyframes dktw{50%{opacity:.25;transform:scale(.6)}}
+.dm input:focus-visible+.dkt{outline:3px solid #9c8cff;outline-offset:3px}
+.dkt,.sw{zoom:.6}
+@media(max-width:560px){.dkt,.sw{zoom:.5}}
+.dk-cl{position:absolute;width:22px;height:8px;border-radius:8px;background:#fff;opacity:.95;box-shadow:0 2px 3px rgba(80,140,200,.25);transition:opacity .4s,transform .6s;animation:dkcl 5s ease-in-out infinite alternate}
+.dk-cl::before,.dk-cl::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.dk-cl::before{width:10px;height:10px;left:3px;top:-5px}
+.dk-cl::after{width:13px;height:13px;left:8px;top:-8px}
+.dk-cl.c1{left:46px;top:22px}
+.dk-cl.c2{left:62px;top:10px;transform:scale(.7);animation-delay:-2s}
+.dk-cl.c3{left:34px;top:5px;transform:scale(.55);opacity:.8;animation-delay:-3.5s}
+@keyframes dkcl{to{margin-left:5px}}
+.dm input:checked+.dkt .dk-cl{opacity:0;transform:translateX(18px) scale(.5)}
+
+/* ===================== Moonfall V3: solid reveal footer =====================
+   Light = page accent (purple), Dark / GenZ = near-black. The footer overlaps the end of the last section with rounded
+   top corners (a "peek"), then its content rises and fades in as you scroll (--fp 0..1 is set by JS from scroll position). */
+.ft{position:relative;z-index:2;margin-top:-56px;border-radius:44px 44px 0 0;overflow:hidden;color:#fff;background:linear-gradient(160deg,#5b4bff 0%,#3f2fc4 55%,#2e1a8c 100%);padding:84px 6vw 28px;text-align:left}
+body.dark .ft,body.genz .ft,html.dark .ft{background:linear-gradient(180deg,#0b0716 0%,#050309 100%);border-top:1px solid rgba(156,140,255,.28)}
+.ft::before{content:"";position:absolute;left:50%;top:-30%;width:70vw;height:70vw;max-width:900px;max-height:900px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.16),transparent 62%);pointer-events:none}
+body.dark .ft::before,body.genz .ft::before,html.dark .ft::before{background:radial-gradient(circle,rgba(47,27,143,.55),transparent 62%)}
+.ft-in{position:relative;max-width:1180px;margin:0 auto;transform:translateY(calc((1 - var(--fp,1)) * 90px));opacity:calc(.25 + var(--fp,1) * .75);will-change:transform,opacity}
+.ft-top{display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
+.ft h2{font:800 clamp(30px,4.4vw,54px)/1.08 var(--h,'Poppins',system-ui,sans-serif);letter-spacing:-.03em;margin:0 0 26px;color:#fff}
+.ft-btn{font:600 16px var(--b,'DM Sans',system-ui,sans-serif);border:0;cursor:pointer;color:#2e1a8c;background:#fff;padding:14px 26px;border-radius:999px;transition:transform .25s,box-shadow .25s;box-shadow:0 12px 30px -10px rgba(0,0,0,.45)}
+body.dark .ft-btn,body.genz .ft-btn,html.dark .ft-btn{background:#2f1b8f;color:#fff}
+.ft-btn:hover{transform:translateY(-2px) scale(1.03)}
+.ft-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.ft-cols h3{font:700 12px var(--h,'Poppins',system-ui,sans-serif);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.62);margin:0 0 14px}
+body.dark .ft-cols h3,body.genz .ft-cols h3,html.dark .ft-cols h3{color:#9c8cff}
+.ft-cols a{display:block;color:#fff;text-decoration:none;font:500 16px/1.4 var(--b,'DM Sans',system-ui,sans-serif);padding:5px 0;opacity:.92;transition:transform .25s,opacity .25s}
+.ft-cols a:hover{opacity:1;transform:translateX(5px)}
+.ft-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center;margin-top:18px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);font-size:14px;color:rgba(255,255,255,.7)}
+body.dark .ft-bot,body.genz .ft-bot,html.dark .ft-bot{border-top-color:rgba(156,140,255,.22);color:#b8aee6}
+.ft-up{color:#fff;text-decoration:none;font-weight:600}.ft-up:hover{text-decoration:underline}
+.ft :focus-visible{outline:3px solid #fff;outline-offset:3px}
+body.ftv .dots{opacity:0;pointer-events:none}
+.dots{transition:opacity .3s}
+@media(max-width:480px){.ft-cols{grid-template-columns:1fr 1fr}}
+@media(prefers-reduced-motion:reduce){.ft-in{transform:none!important;opacity:1!important}}
+
+body .ft{margin-top:40px}
+a.ft-btn{display:inline-block;text-decoration:none}
+
+/* Footer brand animation: the two V shapes from the logo slide together into the W as the footer rises (driven by --fp) and wiggle on hover */
+.ft-v{display:block;width:112px;height:auto;margin:0 0 22px;overflow:visible}
+.ft-v path{fill:none;stroke-width:28;stroke-linecap:round;stroke-linejoin:round;transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+.ft-v .v1{stroke:#fff;transform:translateX(calc((1 - var(--fp,1)) * -70px))}
+.ft-v .v2{stroke:#cfc6ff;transform:translateX(calc((1 - var(--fp,1)) * 70px))}
+body.dark .ft-v .v1,body.genz .ft-v .v1,html.dark .ft-v .v1{stroke:#5b4bff}
+body.dark .ft-v .v2,body.genz .ft-v .v2,html.dark .ft-v .v2{stroke:#9c8cff}
+.ft:hover .ft-v .v1{transform:translateX(-5px) rotate(-3deg)}
+.ft:hover .ft-v .v2{transform:translateX(5px) rotate(3deg)}
+@media(prefers-reduced-motion:reduce){.ft-v path{transition:none!important;transform:none!important}}
+.ft-bot{margin-top:56px}
+
+/* ===== Light-mode footer: same glow effect as Dark (V89) =====
+   Dark = black base + a deep-violet glow rising from the top centre.
+   Light now = deep indigo base + a bright brand-violet glow rising from the top centre. */
+html:not(.dark) body:not(.dark):not(.genz) .ft{background:linear-gradient(180deg,#2e1a8c 0%,#22126e 100%);border-top:1px solid rgba(201,196,255,.35)}
+html:not(.dark) body:not(.dark):not(.genz) .ft::before{background:radial-gradient(circle,rgba(91,75,255,.95),rgba(91,75,255,.35) 38%,transparent 62%)}
+
+/* ===== Footer V mark = the exact logo V (V90) =====
+   Traced from the logo files (98% shape match): back V #2F1B8F, front V #5A4BFF, same in Light and Dark. */
+.ft-v{width:118px;filter:drop-shadow(0 0 1px rgba(255,255,255,.55)) drop-shadow(0 6px 14px rgba(0,0,0,.25))}
+.ft-v path{stroke:none!important;stroke-width:0!important;transition:transform .5s cubic-bezier(.3,1.5,.5,1)}
+.ft-v .v1,body.dark .ft-v .v1,body.genz .ft-v .v1,html.dark .ft-v .v1{fill:#2f1b8f;transform:translateX(calc((1 - var(--fp,1)) * -140px))}
+.ft-v .v2,body.dark .ft-v .v2,body.genz .ft-v .v2,html.dark .ft-v .v2{fill:#5a4bff;transform:translateX(calc(79px + (1 - var(--fp,1)) * 140px))}
+.ft:hover .ft-v .v1{transform:translateX(-10px)}
+.ft:hover .ft-v .v2{transform:translateX(89px)}
+@media(prefers-reduced-motion:reduce){.ft-v path{transition:none!important}.ft-v .v1{transform:none!important}.ft-v .v2{transform:translateX(79px)!important}}
+
+/* ===== Light-mode footer V colours (V91): tuned to the indigo footer ===== */
+html:not(.dark) body:not(.dark):not(.genz) .ft-v{filter:drop-shadow(0 6px 14px rgba(0,0,0,.25))}
+html:not(.dark) body:not(.dark):not(.genz) .ft-v .v1{fill:#8a7dff}
+html:not(.dark) body:not(.dark):not(.genz) .ft-v .v2{fill:#ffffff}
+
+/* V92 · same heading + label language on inner pages (Light/Dark) */
+.gt{font-style:normal;background:linear-gradient(90deg,#2e1a8c,#5b4bff,#8a7dff);-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+html.dark .gt,body.dark .gt{background:linear-gradient(90deg,#b9b1ff,#8a7dff,#fff);-webkit-background-clip:text;background-clip:text}
+h1{font-weight:800;letter-spacing:-.03em;line-height:1.08}
+.eyebrow{display:inline-block;font:600 12px var(--b,'DM Sans',system-ui,sans-serif);letter-spacing:.14em;text-transform:uppercase;color:#5b4bff;background:#ecebff;border-radius:999px;padding:5px 12px}
+html.dark .eyebrow,body.dark .eyebrow{color:#b9b1ff;background:#1d1a52}
+
+/* V93 · same Light background on inner pages. */
+html:not(.dark) body:not(.dark):not(.genz) .bg{background:radial-gradient(70% 38% at 62% -6%,rgba(255,255,255,.95) 0%,rgba(255,255,255,.55) 38%,transparent 72%),linear-gradient(180deg,#fdfcff 0%,#f4f2ff 30%,#e8e4ff 65%,#dcd7ff 100%)}
+html:not(.dark) body:not(.dark):not(.genz) .bg::before,html:not(.dark) body:not(.dark):not(.genz) .bg::after{content:"";position:absolute;inset:-25%;z-index:0;pointer-events:none;will-change:transform;background:url(assets/light-nets.png) 0 0/640px 640px;-webkit-mask-image:linear-gradient(180deg,transparent 12%,rgba(0,0,0,.55) 40%,#000 70%);mask-image:linear-gradient(180deg,transparent 12%,rgba(0,0,0,.55) 40%,#000 70%)}
+html:not(.dark) body:not(.dark):not(.genz) .bg::before{opacity:.3;animation:lnA 70s linear infinite}
+html:not(.dark) body:not(.dark):not(.genz) .bg::after{opacity:.18;background-size:430px 430px;animation:lnB 95s linear infinite}
+html:not(.dark) body:not(.dark):not(.genz) .bg .bl,html:not(.dark) body:not(.dark):not(.genz) .bg .n-spot{z-index:1}
+@keyframes lnA{to{transform:translate3d(-640px,-320px,0)}}
+@keyframes lnB{to{transform:translate3d(430px,-430px,0)}}
+@media (prefers-reduced-motion:reduce){html:not(.dark) body:not(.dark):not(.genz) .bg::before,html:not(.dark) body:not(.dark):not(.genz) .bg::after{animation:none}}
+
+/* V95 · Light mode: transparent header on inner pages. */
+html:not(.dark) nav.pn{background:none;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+html:not(.dark) nav.pn::before{content:"";position:absolute;left:0;right:0;top:0;bottom:-54px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(253,252,255,.84),rgba(248,246,255,.66));-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.94) 22%,rgba(0,0,0,.8) 38%,rgba(0,0,0,.58) 54%,rgba(0,0,0,.36) 68%,rgba(0,0,0,.18) 80%,rgba(0,0,0,.06) 91%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.94) 22%,rgba(0,0,0,.8) 38%,rgba(0,0,0,.58) 54%,rgba(0,0,0,.36) 68%,rgba(0,0,0,.18) 80%,rgba(0,0,0,.06) 91%,transparent 100%)}
+
+/* V99 · Dark mode: same header on inner pages. */
+html.dark nav.pn{background:none;border:0;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+html.dark nav.pn::before{content:"";position:absolute;left:0;right:0;top:0;bottom:-54px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(10,6,21,.84),rgba(10,6,21,.62));-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.94) 22%,rgba(0,0,0,.8) 38%,rgba(0,0,0,.58) 54%,rgba(0,0,0,.36) 68%,rgba(0,0,0,.18) 80%,rgba(0,0,0,.06) 91%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.94) 22%,rgba(0,0,0,.8) 38%,rgba(0,0,0,.58) 54%,rgba(0,0,0,.36) 68%,rgba(0,0,0,.18) 80%,rgba(0,0,0,.06) 91%,transparent 100%)}
+
+/* V100 · Light-state toggle: bright real sun + soft drifting clouds (moon, stars and Dark state unchanged) */
+.dkt{border-color:#9fcdf0;background:linear-gradient(180deg,#4aa8f2 0%,#8cc9f7 55%,#cfe9ff 100%);box-shadow:inset 0 2px 5px rgba(20,70,140,.28),inset 0 -2px 4px rgba(255,255,255,.35)}
+.dkt::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#0b0726,#241a63);opacity:0;transition:opacity .5s}
+.dkt::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(120% 90% at 18% 0%,rgba(255,255,255,.35),transparent 55%)}
+.dm input:checked+.dkt{background:linear-gradient(180deg,#4aa8f2,#cfe9ff)}
+.dm input:checked+.dkt::before{opacity:1}
+.dkt .cl{position:absolute;left:0;top:var(--y);width:var(--w);height:calc(var(--w)*.5);opacity:var(--o);transform:translate3d(96px,0,0);animation:dkdrift var(--t) linear infinite;animation-delay:var(--d);will-change:transform;transition:opacity .5s;z-index:1;animation-duration:var(--t)}
+.dkt .cl svg{position:static;display:block;width:100%;height:100%;overflow:visible}
+@keyframes dkdrift{to{transform:translate3d(calc(var(--w) * -1.1),0,0)}}
+.dm input:checked+.dkt .cl{opacity:0}
+.dkt .dk-st{z-index:2}
+.dkk{z-index:3}
+.dkk .sun{position:absolute;inset:-14px;border-radius:50%;transition:opacity .35s,transform .55s}
+.dkk .sun .glow{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(255,244,190,.9) 0%,rgba(255,214,102,.5) 24%,rgba(255,176,60,.2) 44%,rgba(255,170,60,.06) 62%,transparent 74%);animation:dkbreathe 5s ease-in-out infinite}
+.dkk .sun .disc{position:absolute;left:50%;top:50%;width:25px;height:25px;margin:-12.5px 0 0 -12.5px;border-radius:50%;background:radial-gradient(circle at 42% 38%,#fffef2 0%,#fff6c4 26%,#ffe383 52%,#ffc23d 80%,#ffab24 100%);box-shadow:0 0 7px 2px rgba(255,236,150,.95),0 0 16px 6px rgba(255,190,60,.55)}
+.dkk .sun .flare{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:conic-gradient(from 0deg,transparent 0 6%,rgba(255,255,230,.35) 8%,transparent 11% 31%,rgba(255,255,230,.28) 33%,transparent 36% 56%,rgba(255,255,230,.32) 58%,transparent 61% 81%,rgba(255,255,230,.26) 83%,transparent 86%);-webkit-mask-image:radial-gradient(circle,transparent 28%,#000 40%,transparent 72%);mask-image:radial-gradient(circle,transparent 28%,#000 40%,transparent 72%);animation:dkslow 40s linear infinite}
+@keyframes dkbreathe{50%{transform:scale(1.07);opacity:.88}}
+@keyframes dkslow{to{transform:rotate(360deg)}}
+.dm input:checked+.dkt .sun{opacity:0;transform:scale(.4) rotate(90deg)}
+@media (prefers-reduced-motion:reduce){.dkt .cl{animation:none;transform:translate3d(30px,0,0)}.dkk .sun .glow,.dkk .sun .flare{animation:none}}
+
+/* V101 · Light nets rebuilt: layers are one tile larger than the screen and travel exactly one tile, so the screen is always fully covered and the loop has no jump. The top fade is on a fixed wrapper, so it no longer moves with the nets. */
+.lnw{display:none}
+html:not(.dark) body:not(.dark):not(.genz) .lnw{display:block;position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;-webkit-mask-image:linear-gradient(180deg,transparent 12%,rgba(0,0,0,.55) 40%,#000 70%);mask-image:linear-gradient(180deg,transparent 12%,rgba(0,0,0,.55) 40%,#000 70%)}
+html:not(.dark) body:not(.dark):not(.genz) .lnw b{position:absolute;display:block;will-change:transform;background:url(assets/light-nets.png) 0 0 repeat}
+html:not(.dark) body:not(.dark):not(.genz) .lnw b:first-child{left:0;top:0;width:calc(100% + 640px);height:calc(100% + 640px);background-size:640px 640px;opacity:.3;animation:lnC 70s linear infinite}
+html:not(.dark) body:not(.dark):not(.genz) .lnw b:last-child{left:-430px;top:0;width:calc(100% + 430px);height:calc(100% + 430px);background-size:430px 430px;opacity:.18;animation:lnD 95s linear infinite}
+@keyframes lnC{to{transform:translate3d(-640px,-640px,0)}}
+@keyframes lnD{to{transform:translate3d(430px,-430px,0)}}
+html:not(.dark) body:not(.dark):not(.genz) .bg::before,html:not(.dark) body:not(.dark):not(.genz) .bg::after{content:none}
+html:not(.lo) .lnw b{animation-play-state:paused}
+@media (prefers-reduced-motion:reduce){.lnw b{animation:none!important}}

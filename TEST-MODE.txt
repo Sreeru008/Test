@@ -1,0 +1,3 @@
+TEST MODE ON (17 Nov 2026)
+testv1 = copy of V101 (Moonfall). All test changes go in /mnt/user-data/outputs/testv1/ only.
+soulvved/ (V101) stays untouched until the user turns test mode off.
